@@ -22,8 +22,8 @@ NAME=nginx
 NGINX_BIN=/usr/local/nginx/sbin/$NAME
 CONFIGFILE=/usr/local/nginx/conf/$NAME.conf
 PIDFILE=/var/run/$NAME.pid
-if [ -s /bin/ss ]; then
-    StatBin=/bin/ss
+if [ -s /sbin/ss ]; then
+    StatBin=/sbin/ss
 else
     StatBin=/bin/netstat
 fi

@@ -8,8 +8,13 @@ user_name=www-nginx
 groupadd $user_name
 useradd -s /sbin/nologin -g $user_name $user_name
 
-#创建conf.d目录
+#创建目录
 mkdir -p $nginx_location/etc/conf.d
+mkdir -p $nginx_location/sbin
+mkdir -p $nginx_location/modules
+mkdir -p $nginx_location/log
+mkdir -p /var/cache/nginx
+
 
 #安装依赖
 yum install -y gcc gcc-c++ autoconf \
@@ -42,7 +47,7 @@ make -j `grep processor /proc/cpuinfo` |wc -l
 make install
 
 #配置开机启动
-\cp init.d/init.d.nginx /etc/init.d/nginx
+\cp ../init.d/init.d.nginx /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
 /etc/init.d/nginx start
 
