@@ -13,6 +13,7 @@ mkdir -p $nginx_location/etc/conf.d
 mkdir -p $nginx_location/sbin
 mkdir -p $nginx_location/modules
 mkdir -p $nginx_location/log
+mkdir -p $nginx_location/html/default
 mkdir -p /var/cache/nginx
 
 
@@ -49,6 +50,7 @@ make install
 #拷贝配置文件
 \cp -f ../conf/nginx.conf /$nginx_location/etc/nginx.conf
 \cp -f ../conf/default.conf /$nginx_location/etc/conf.d/default.conf
+mv $nginx_location/html/*.* $nginx_location/html/default
 
 #配置开机启动
 \cp ../init.d/init.d.nginx /etc/init.d/nginx
