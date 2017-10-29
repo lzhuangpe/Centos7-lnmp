@@ -2,7 +2,7 @@
 
 nginx_location=/usr/local/nginx
 nginx_ver=nginx-1.12.2
-user_name=www-nginx
+user_name=www-user
 
 #创建用户
 groupadd $user_name

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-user_name=www-php
+user_name=www-user
 php_location=/usr/local/php
 php_ver=php-5.6.31
 bin_path=/usr/bin
