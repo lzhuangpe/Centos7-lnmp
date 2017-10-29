@@ -48,7 +48,7 @@ make install
 
 #拷贝配置文件
 \cp -f ../conf/nginx.conf /$nginx_location/etc/nginx.conf
-\cp -f ../conf/default.conf /$nginx_location/etc/default.conf
+\cp -f ../conf/default.conf /$nginx_location/etc/conf.d/default.conf
 
 #配置开机启动
 \cp ../init.d/init.d.nginx /etc/init.d/nginx
