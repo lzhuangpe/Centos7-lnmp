@@ -46,6 +46,10 @@ cd $nginx_ver
 make -j `grep processor /proc/cpuinfo` |wc -l
 make install
 
+#拷贝配置文件
+\cp -f ../conf/nginx.conf /$nginx_location/etc/nginx.conf
+\cp -f ../conf/default.conf /$nginx_location/etc/default.conf
+
 #配置开机启动
 \cp ../init.d/init.d.nginx /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
