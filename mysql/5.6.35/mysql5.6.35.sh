@@ -21,12 +21,6 @@ yum install -y aria2 libaio autoconf
 groupadd $user_name
 useradd -s /sbin/nologin -g $user_name $user_name
 
-# 设置环境变量
-cat >> /etc/profile <<EOF
-export PATH=$PATH:/usr/local/mysql/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mysql/lib
-EOF
-source /etc/profile
 
 # 下载安装包
 aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
@@ -50,6 +44,12 @@ chkconfig mysqld on
 /etc/init.d/mysqld start
 
 
+# 设置环境变量
+cat >> /etc/profile <<EOF
+export PATH=$PATH:/usr/local/mysql/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mysql/lib
+EOF
+source /etc/profile
 
 
 
