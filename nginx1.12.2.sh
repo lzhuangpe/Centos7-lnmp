@@ -15,9 +15,9 @@ yum install -y gcc gcc-c++ autoconf \
     perl-devel perl-ExtUtils-Embed GeoIP-devel
 
 #下载安装包
-wget -c https://www.openssl.org/source/open_ssl_ver.tar.gz
-tar -zxf open_ssl_ver.tar.gz
-openssl_dir=$pwd/open_ssl_ver
+wget -c https://www.openssl.org/source/$open_ssl_ver.tar.gz
+tar -zxf $open_ssl_ver.tar.gz
+openssl_dir=$pwd/$open_ssl_ver
 
 wget -c http://nginx.org/download/$nginx_ver.tar.gz
 tar -zxf $nginx_ver.tar.gz
@@ -42,7 +42,7 @@ mkdir -p /var/cache/nginx
     --with-http_perl_module=dynamic --with-threads --with-stream --with-stream_ssl_module \
     --with-stream_ssl_preread_module --with-stream_realip_module --with-stream_geoip_module=dynamic --with-http_slice_module \
     --with-mail --with-mail_ssl_module --with-compat --with-file-aio --with-http_v2_module \
-    --with-openssl=openssl_dir
+    --with-openssl=$openssl_dir
 
 #编译安装
 make -j `grep processor /proc/cpuinfo` |wc -l
