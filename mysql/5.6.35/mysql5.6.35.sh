@@ -41,7 +41,7 @@ $mysql_location/scripts/mysql_install_db \
     --user=mysql \
     --basedir=$mysql_location \
     --datadir=$mysql_location/data \
-    --default-file=$mysql_location/etc/my.cnf
+    --defaults-file=$mysql_location/etc/my.cnf
 
 # 设置开机启动
 \cp -f $mysql_location/support-files/mysql.server /etc/init.d/mysqld
