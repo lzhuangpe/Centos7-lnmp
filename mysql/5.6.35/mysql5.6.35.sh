@@ -14,7 +14,7 @@ sed -e 's!^mirrorlist=!#mirrorlist=!g' \
     -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo
 
 # 安装依赖
-yum install -y aria2 libaio 
+yum install -y aria2 libaio autoconf
 #autoconf
 
 # 创建用户
