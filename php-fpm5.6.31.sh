@@ -38,6 +38,7 @@ echo "编译参数"
     --enable-ftp --enable-mbstring --with-curl --with-libedit --with-openssl --with-zlib \
     --enable-mysqlnd --with-mysql --with-mysqli --with-pdo-mysql \
     --with-pcre-regex \
+    --enable-opcache \
     --with-gd --with-png-dir --with-jpeg-dir --with-freetype-dir \
     --enable-bcmath --enable-ctype --enable-sockets --with-gettext --with-ldap
 
