@@ -44,7 +44,7 @@ make install
 #拷贝配置文件
 mkdir -p $nginx_location/etc/conf.d
 mkdir -p $nginx_location/html/default
-#mkdir -p /var/cache/nginx
+mkdir -p /var/cache/nginx
 \cp -f ../conf/nginx.conf /$nginx_location/etc/nginx.conf
 \cp -f ../conf/default.conf /$nginx_location/etc/conf.d/default.conf
 
