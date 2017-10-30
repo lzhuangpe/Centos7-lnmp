@@ -21,24 +21,6 @@ yum install -y aria2 libaio
 groupadd $user_name
 useradd -s /sbin/nologin -g $user_name $user_name
 
-# 下载安装包
-aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
-tar -zxf $mysql_ver.tar.gz
-mv $mysql_ver $mysql_location
-mkdir -p $mysql_location/log
-mkdir -p $mysql_location/data
-
-# 初始化数据库
-$mysql_location/script/mysql_install_db --user=mysql
-
-# 拷贝配置文件
-\cp -f ./conf/my.cnf /etc/my.cnf
-
-# 设置开机启动
-\cp -f /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
-chmod +x /etc/init.d/mysqld
-chkconfig mysqld on
-
 # 设置环境变量
 cat >> /etc/profile <<EOF
 export PATH=$PATH:/usr/local/mysql/bin
@@ -46,8 +28,24 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mysql/lib
 EOF
 source /etc/profile
 
+# 下载安装包
+aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
+tar -zxf $mysql_ver.tar.gz
+mv $mysql_ver $mysql_location
+mkdir -p $mysql_location/{data,log,binglog,etc,run}
+chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
+\cp -f ./conf/my.cnf $mysql_location/etc/my.cnf
 
+# 初始化数据库
+$mysql_location/script/mysql_install_db --user=mysql --default-file=$mysql_location/etc/my.cnf
+
+# 设置开机启动
+\cp -f $mysql_location/support-files/mysql.server /etc/init.d/mysqld
+chmod +x /etc/init.d/mysqld
+chkconfig mysqld on
 /etc/init.d/mysqld start
+
+
 
 
 
