@@ -69,6 +69,7 @@ opcache.max_accelerated_files=4000
 opcache.revalidate_freq=60
 opcache.fast_shutdown=1
 opcache.enable_cli=1
+opcache.enable=1
 EOF
 
 echo "配置pear pecl"
