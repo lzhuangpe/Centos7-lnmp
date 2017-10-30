@@ -37,8 +37,7 @@ chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
 \cp -f ./conf/my.cnf $mysql_location/etc/my.cnf
 
 # 初始化数据库
-cd $mysql_location
-./scripts/mysql_install_db \
+$mysql_location/scripts/mysql_install_db \
     --user=mysql \
     --basedir=$mysql_location \
     --datadir=$mysql_location/data \
