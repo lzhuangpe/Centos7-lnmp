@@ -38,7 +38,7 @@ chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
 
 # 初始化数据库
 cd $mysql_location
-$mysql_location/script/mysql_install_db --user=mysql --default-file=$mysql_location/etc/my.cnf
+./script/mysql_install_db --user=mysql --default-file=$mysql_location/etc/my.cnf
 
 # 设置开机启动
 \cp -f $mysql_location/support-files/mysql.server /etc/init.d/mysqld
