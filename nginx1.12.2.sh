@@ -4,6 +4,7 @@ nginx_location=/usr/local/nginx
 nginx_ver=nginx-1.12.2
 user_name=www-nginx
 open_ssl_ver=openssl-1.1.0f
+cur_dir=$(pwd)
 
 #创建用户
 groupadd $user_name
@@ -17,7 +18,7 @@ yum install -y gcc gcc-c++ autoconf \
 #下载安装包
 wget -c https://www.openssl.org/source/$open_ssl_ver.tar.gz
 tar -zxf $open_ssl_ver.tar.gz
-openssl_dir=$pwd/$open_ssl_ver
+openssl_dir=$cur_dir/$open_ssl_ver
 
 wget -c http://nginx.org/download/$nginx_ver.tar.gz
 tar -zxf $nginx_ver.tar.gz
