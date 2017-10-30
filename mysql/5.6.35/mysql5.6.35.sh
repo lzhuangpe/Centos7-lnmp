@@ -14,7 +14,8 @@ sed -e 's!^mirrorlist=!#mirrorlist=!g' \
     -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo
 
 # 安装依赖
-yum install -y aria2 autoconf
+yum install -y aria2 libaio 
+#autoconf
 
 # 创建用户
 groupadd $user_name
@@ -25,15 +26,11 @@ aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
 tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
 
-# 拷贝配置文件
-\cp -f ../conf/my.cnf /etc/my.cnf
-
 # 初始化数据库
-$mysql_location/script/mysql_install_db \
-    --basedir=$mysql_location \
-    --datadir=$mysql_location/data \
-    --defaults-file=/etc/my.cnf \
-    --user=mysql
+$mysql_location/script/mysql_install_db --user=mysql
+
+# 拷贝配置文件
+\cp -f ./conf/my.cnf /etc/my.cnf
 
 # 设置开机启动
 \cp -f /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
