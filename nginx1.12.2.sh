@@ -36,7 +36,8 @@ mkdir -p /var/cache/nginx
     --with-http_auth_request_module --with-http_xslt_module=dynamic --with-http_image_filter_module=dynamic --with-http_geoip_module=dynamic \
     --with-http_perl_module=dynamic --with-threads --with-stream --with-stream_ssl_module \
     --with-stream_ssl_preread_module --with-stream_realip_module --with-stream_geoip_module=dynamic --with-http_slice_module \
-    --with-mail --with-mail_ssl_module --with-compat --with-file-aio --with-http_v2_module
+    --with-mail --with-mail_ssl_module --with-compat --with-file-aio --with-http_v2_module \
+    --with-openssl
 
 #编译安装
 make -j `grep processor /proc/cpuinfo` |wc -l
