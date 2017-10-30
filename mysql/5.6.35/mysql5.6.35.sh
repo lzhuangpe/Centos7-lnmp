@@ -25,6 +25,8 @@ useradd -s /sbin/nologin -g $user_name $user_name
 aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
 tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
+mkdir -p $mysql_location/log
+mkdir -p $mysql_location/data
 
 # 初始化数据库
 $mysql_location/script/mysql_install_db --user=mysql
