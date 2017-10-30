@@ -9,13 +9,7 @@ groupadd $user_name
 useradd -s /sbin/nologin -g $user_name $user_name
 
 #创建目录
-mkdir -p $nginx_location/etc/conf.d
 mkdir -p $nginx_location/sbin
-mkdir -p $nginx_location/modules
-mkdir -p $nginx_location/log
-mkdir -p $nginx_location/html/default
-mkdir -p /var/cache/nginx
-
 
 #安装依赖
 yum install -y gcc gcc-c++ autoconf \
@@ -48,6 +42,9 @@ make -j `grep processor /proc/cpuinfo` |wc -l
 make install
 
 #拷贝配置文件
+mkdir -p $nginx_location/etc/conf.d
+mkdir -p $nginx_location/html/default
+#mkdir -p /var/cache/nginx
 \cp -f ../conf/nginx.conf /$nginx_location/etc/nginx.conf
 \cp -f ../conf/default.conf /$nginx_location/etc/conf.d/default.conf
 
