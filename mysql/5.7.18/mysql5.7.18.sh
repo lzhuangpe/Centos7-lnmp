@@ -26,8 +26,8 @@ useradd -s /sbin/nologin -g $user_name $user_name
 aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.7/$mysql_ver.tar.gz
 tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
-mkdir -p $mysql_location/{data,log,binglog,etc,run}
-chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
+mkdir -p $mysql_location/{data,log,binglog,run}
+chown -R mysql:mysql $mysql_location/{data,log,binglog,run}
 
 # 初始化数据库
 $mysql_location/bin/mysqld --initialize-insecure \
