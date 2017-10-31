@@ -28,6 +28,7 @@ tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
 mkdir -p $mysql_location/{data,log,binglog,run}
 chown -R mysql:mysql $mysql_location/{data,log,binglog,run}
+\cp -f ./conf/my.cnf /etc/my.cnf
 
 # 初始化数据库
 $mysql_location/bin/mysqld --initialize-insecure \
