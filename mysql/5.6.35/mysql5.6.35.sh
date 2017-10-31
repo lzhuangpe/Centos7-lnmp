@@ -26,16 +26,15 @@ useradd -s /sbin/nologin -g $user_name $user_name
 aria2c -x 16 http://mirrors.sohu.com/mysql/MySQL-5.6/$mysql_ver.tar.gz
 tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
-mkdir -p $mysql_location/{data,log,binglog,etc,run}
-chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
-\cp -f ./conf/my.cnf $mysql_location/etc/my.cnf
+mkdir -p $mysql_location/{data,log,binglog,run}
+chown -R mysql:mysql $mysql_location/{data,log,binglog,run}
+\cp -f ./conf/my.cnf /etc/my.cnf
 
 # 初始化数据库
 $mysql_location/scripts/mysql_install_db \
     --user=mysql \
     --basedir=$mysql_location \
     --datadir=$mysql_location/data \
-    --defaults-file=$mysql_location/etc/my.cnf
 
 # 设置开机启动
 \cp -f $mysql_location/support-files/mysql.server /etc/init.d/mysqld
