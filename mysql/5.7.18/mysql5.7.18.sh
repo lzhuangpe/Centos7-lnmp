@@ -28,14 +28,12 @@ tar -zxf $mysql_ver.tar.gz
 mv $mysql_ver $mysql_location
 mkdir -p $mysql_location/{data,log,binglog,etc,run}
 chown -R mysql:mysql $mysql_location/{data,log,binglog,etc,run}
-\cp -f ./conf/my.cnf $mysql_location/etc/my.cnf
 
 # 初始化数据库
 $mysql_location/bin/mysqld --initialize-insecure \
     --user=mysql \
     --basedir=$mysql_location \
     --datadir=$mysql_location/data \
-    --defaults-file=$mysql_location/etc/my.cnf
 
 # 设置开机启动
 \cp -f $mysql_location/support-files/mysql.server /etc/init.d/mysqld
