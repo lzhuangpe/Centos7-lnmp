@@ -2,7 +2,7 @@
 
 user_name=www-nologin
 php_location=/usr/local/php
-php_ver=php-5.6.31
+php_ver=php-7.1.11
 bin_path=/usr/bin
 
 echo "安装扩展"
@@ -55,6 +55,7 @@ ln -sf $php_location/bin/pecl $bin_path/pecl
 echo "复制新的php配置文件"
 \cp php.ini-production $php_location/etc/php.ini
 \cp $php_location/etc/php-fpm.conf.default $php_location/etc/php-fpm.conf
+\cp $php_location/etc/php-fpm.d/www.conf.default $php_location/etc/php-fpm.d/www.conf
 
 echo "修改配置文件"
 sed -i 's/;date.timezone =.*/date.timezone = PRC/g' $php_location/etc/php.ini
