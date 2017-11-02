@@ -1,6 +1,6 @@
 #!/bin/bash
 
-user_name=www-nologin
+user_name=www-php
 php_location=/usr/local/php
 php_ver=php-7.1.11
 bin_path=/usr/bin

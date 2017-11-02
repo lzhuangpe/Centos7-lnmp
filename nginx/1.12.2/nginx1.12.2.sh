@@ -2,7 +2,7 @@
 
 nginx_location=/usr/local/nginx
 nginx_ver=nginx-1.12.2
-user_name=www-nologin
+user_name=www-nginx
 open_ssl_ver=openssl-1.1.0f
 cur_dir=$(pwd)
 
