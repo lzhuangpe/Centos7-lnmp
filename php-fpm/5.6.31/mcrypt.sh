@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install -y llibtomcrypt libtomcrypt-devel
+yum install -y libmcrypt libmcrypt-devel mcrypt
 cd php-5.6.31/ext/mcrypt/
 phpize
 ./configure --with-php-config=/usr/local/php/bin/php-config
