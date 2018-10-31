@@ -2,7 +2,7 @@
 
 user_name=www-php
 php_location=/usr/local/php
-php_ver=php-7.1.11
+php_ver=php-7.2.11
 bin_path=/usr/bin
 
 echo "安装扩展"
