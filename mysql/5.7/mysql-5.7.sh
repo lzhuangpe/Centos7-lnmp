@@ -1,4 +1,4 @@
-mysql_ver=mysql-5.7.22-linux-glibc2.12-x86_64
+mysql_ver=mysql-5.7.24-linux-glibc2.12-x86_64
 mysql_location=/usr/local/mysql
 user_name=mysql
 
