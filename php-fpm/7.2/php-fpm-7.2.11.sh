@@ -59,7 +59,7 @@ echo "复制新的php配置文件"
 
 echo "修改配置文件"
 sed -i 's/;date.timezone =.*/date.timezone = PRC/g' $php_location/etc/php.ini
-sed -i 's/disable_functions =.*/disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,popen,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server/g' $php_location/etc/php.ini
+sed -i 's/disable_functions =.*/disable_functions = passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,popen,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server/g' $php_location/etc/php.ini
 
 cat >$php_location/etc/conf.d/opcache.ini<<EOF
 [Zend Opcache]
